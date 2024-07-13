@@ -16,8 +16,8 @@ $db = new Database($config['database']);
 
 $id = $_GET['id'];
 
-$query = "SELECT * FROM doctor WHERE id = {$id}";
+$query = "SELECT * FROM doctor WHERE id = :id";
 
-$posts = $db->query($query)->fetch();
+$posts = $db->query($query, ['id' => $id])->fetch();
 
 dd($posts);
